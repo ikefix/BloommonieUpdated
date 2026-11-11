@@ -1,0 +1,871 @@
+/* ==========================================================================
+   BloomMonie Navbar
+   Full-width dark navigation bar with centered content.
+   Includes:
+   - Logo
+   - Desktop navigation
+   - Resources dropdown
+   - Platforms dropdown
+   - Login / Get Started actions
+   - Responsive mobile menu
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+
+.hero-navbar {
+  --nav-bg: rgba(12, 31, 63, 0.95);
+  --nav-border: rgba(143, 170, 220, 0.2);
+  --nav-link: #cfdcf5;
+  --nav-muted: #8faadc;
+  --nav-hover-bg: rgba(143, 170, 220, 0.14);
+  --nav-accent: #2f5da8;
+  --nav-accent-hover: #3a6cc0;
+  --nav-focus: #8faadc;
+
+  /* Align navbar with the 1180px page container */
+  --nav-pad-x: max(4%, calc((100% - 1180px) / 2));
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+
+  padding: 12px var(--nav-pad-x);
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+
+  background: var(--nav-bg);
+
+  border-bottom: 1px solid var(--nav-border);
+
+  box-shadow:
+    0 10px 30px -14px rgba(4, 12, 28, 0.55);
+
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+
+
+/* Fallback when backdrop-filter isn't supported */
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .hero-navbar {
+    background: #0c1f3f;
+  }
+}
+
+
+/* ==========================================================================
+   Keyboard Focus
+   ========================================================================== */
+
+.hero-navbar a:focus-visible,
+.hero-navbar button:focus-visible {
+  outline: 2px solid var(--nav-focus);
+  outline-offset: 2px;
+}
+
+
+/* ==========================================================================
+   Logo
+   ========================================================================== */
+
+/* .navbar-logo {
+  justify-self: start;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  text-decoration: none;
+} */
+
+
+/* Bloommonie Logo */
+.navbar-logo {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+  width: fit-content;
+  max-width: 220px;
+}
+
+/* Actual logo image */
+.navbar-logo-img {
+  display: block;
+  width: 34px;
+  height: 34px;
+  max-width: 34px;
+  max-height: 34px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Bloommonie text */
+.logo-text {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .navbar-logo-img {
+    width: 30px;
+    height: 30px;
+    max-width: 30px;
+    max-height: 30px;
+  }
+
+  .logo-text {
+    font-size: 1.125rem;
+  }
+}
+
+
+
+.logo-mark {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      140deg,
+      #4a82dc 0%,
+      #2f5da8 55%,
+      #204584 100%
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 6px 16px -6px rgba(47, 93, 168, 0.9);
+}
+
+
+/* Logo petal */
+
+.logo-mark span {
+  display: block;
+
+  width: 14px;
+  height: 14px;
+
+  background: #ffffff;
+
+  border-radius: 14px 2px 14px 2px;
+}
+
+
+.logo-text {
+  color: #ffffff;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+
+/* ==========================================================================
+   Main Navigation
+   ========================================================================== */
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+
+  gap: 2px;
+}
+
+
+/* Normal navigation links */
+
+.navbar-links > a {
+  padding: 8px 14px;
+
+  border-radius: 10px;
+
+  color: var(--nav-link);
+
+  font-size: 0.9375rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+
+.navbar-links > a:hover {
+  color: #ffffff;
+  background: var(--nav-hover-bg);
+}
+
+
+/* ==========================================================================
+   Dropdown
+   ========================================================================== */
+
+.nav-dropdown {
+  position: relative;
+}
+
+
+/* Dropdown trigger */
+
+.nav-dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 8px 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: var(--nav-link);
+
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+
+.nav-dropdown-btn:hover {
+  color: #ffffff;
+  background: var(--nav-hover-bg);
+}
+
+
+/* Dropdown arrow */
+
+.dropdown-arrow {
+  display: inline-block;
+
+  font-size: 0.8rem;
+  line-height: 1;
+
+  transform: translateY(-1px);
+
+  transition:
+    transform 0.2s ease;
+}
+
+
+/* ==========================================================================
+   Dropdown Menu
+   ========================================================================== */
+
+.dropdown-menu {
+  position: absolute;
+
+  top: calc(100% + 10px);
+  left: 50%;
+
+  min-width: 220px;
+
+  padding: 8px;
+
+  transform:
+    translateX(-50%)
+    translateY(-6px);
+
+  background: rgba(12, 31, 63, 0.98);
+
+  border: 1px solid var(--nav-border);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 40px -16px rgba(0, 0, 0, 0.55),
+    0 8px 20px -12px rgba(4, 12, 28, 0.6);
+
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  z-index: 200;
+
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s ease;
+}
+
+
+/* Invisible bridge between button and menu */
+
+.dropdown-menu::before {
+  content: "";
+
+  position: absolute;
+
+  top: -10px;
+  left: 0;
+
+  width: 100%;
+  height: 10px;
+}
+
+
+/* ==========================================================================
+   Dropdown Links
+   ========================================================================== */
+
+.dropdown-menu a {
+  display: block;
+
+  padding: 11px 12px;
+
+  border-radius: 9px;
+
+  color: var(--nav-link);
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+
+.dropdown-menu a:hover {
+  color: #ffffff;
+
+  background: var(--nav-hover-bg);
+}
+
+
+/* ==========================================================================
+   Show Dropdown on Hover / Keyboard Focus
+   ========================================================================== */
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+
+/* Rotate arrow */
+
+.nav-dropdown:hover .dropdown-arrow,
+.nav-dropdown:focus-within .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+
+/* ==========================================================================
+   Navbar Actions
+   ========================================================================== */
+
+.navbar-actions {
+  justify-self: end;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+/* Login */
+
+.login-btn {
+  padding: 9px 14px;
+
+  border-radius: 10px;
+
+  color: var(--nav-link);
+
+  font-size: 0.9375rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+
+.login-btn:hover {
+  color: #ffffff;
+
+  background: var(--nav-hover-bg);
+}
+
+
+/* ==========================================================================
+   Get Started Button
+   ========================================================================== */
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 16px 10px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 12px;
+
+  background: var(--nav-accent);
+
+  color: #ffffff;
+
+  font: inherit;
+
+  font-size: 0.9375rem;
+  font-weight: 600;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 8px 20px -8px rgba(47, 93, 168, 0.9);
+
+  transition:
+    background-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+
+.nav-cta:hover {
+  background: var(--nav-accent-hover);
+}
+
+
+.nav-cta:active {
+  transform: translateY(1px);
+}
+
+
+/* Arrow animation */
+
+.nav-cta span {
+  display: inline-block;
+
+  transition:
+    transform 0.2s ease;
+}
+
+
+.nav-cta:hover span {
+  transform: translateX(3px);
+}
+
+
+/* ==========================================================================
+   Mobile Menu Button
+   ========================================================================== */
+
+.mobile-menu {
+  display: none;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  border: 1px solid var(--nav-border);
+
+  border-radius: 12px;
+
+  background: var(--nav-hover-bg);
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.mobile-menu span {
+  display: block;
+
+  width: 18px;
+  height: 2px;
+
+  border-radius: 2px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.22s ease,
+    opacity 0.18s ease;
+}
+
+
+/* ==========================================================================
+   Tablet / Mobile
+   ========================================================================== */
+
+@media (max-width: 960px) {
+
+  .hero-navbar {
+    --nav-pad-x: 16px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+
+  /* Logo */
+
+  .navbar-logo {
+    order: 1;
+
+    margin-right: auto;
+  }
+
+
+  /* Hamburger */
+
+  .mobile-menu {
+    order: 2;
+
+    display: inline-flex;
+  }
+
+
+  /* Hide navigation until menu opens */
+
+  .navbar-links,
+  .navbar-actions {
+    display: none;
+
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+
+  .navbar-links {
+    order: 3;
+  }
+
+
+  .navbar-actions {
+    order: 4;
+  }
+
+
+  /* ==========================================================================
+     Open Mobile Menu
+     ========================================================================== */
+
+  .hero-navbar.is-open .navbar-links {
+    display: flex;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 2px;
+
+    margin-top: 10px;
+
+    padding-top: 10px;
+
+    border-top: 1px solid var(--nav-border);
+  }
+
+
+  /* Normal mobile links */
+
+  .hero-navbar.is-open .navbar-links > a {
+    display: block;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 14px;
+
+    font-size: 1rem;
+  }
+
+
+  /* ==========================================================================
+     Mobile Dropdown
+     ========================================================================== */
+
+  .nav-dropdown {
+    width: 100%;
+  }
+
+
+  .nav-dropdown-btn {
+    width: 100%;
+
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    padding: 12px 14px;
+
+    font-size: 1rem;
+
+    text-align: left;
+  }
+
+
+  /*
+     On mobile the dropdown is not positioned absolutely.
+     It becomes part of the navigation flow.
+  */
+
+  .dropdown-menu {
+    position: static;
+
+    width: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    padding: 4px 0 4px 12px;
+
+    transform: none;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    display: none;
+  }
+
+
+  /*
+     When the dropdown receives focus, show it.
+  */
+
+  .nav-dropdown:focus-within .dropdown-menu {
+    display: block;
+
+    transform: none;
+  }
+
+
+  /* Mobile dropdown links */
+
+  .dropdown-menu a {
+    display: block;
+
+    padding: 10px 14px;
+
+    border-left: 1px solid var(--nav-border);
+
+    border-radius: 0 8px 8px 0;
+
+    font-size: 0.95rem;
+  }
+
+
+  /* Disable desktop hover dropdown positioning */
+
+  .nav-dropdown:hover .dropdown-menu {
+    transform: none;
+  }
+
+
+  /* ==========================================================================
+     Mobile Actions
+     ========================================================================== */
+
+  .hero-navbar.is-open .navbar-actions {
+    display: flex;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 8px;
+
+    margin-top: 8px;
+
+    padding-bottom: 4px;
+  }
+
+
+  /* Mobile login */
+
+  .hero-navbar.is-open .login-btn {
+    display: block;
+
+    padding: 12px 14px;
+
+    border: 1px solid var(--nav-border);
+
+    text-align: center;
+  }
+
+
+  /* Mobile CTA */
+
+  .hero-navbar.is-open .nav-cta {
+    justify-content: center;
+
+    padding: 13px 18px;
+  }
+
+
+  /* ==========================================================================
+     Hamburger -> Close Animation
+     ========================================================================== */
+
+  .hero-navbar.is-open .mobile-menu span:nth-child(1) {
+    transform:
+      translateY(7px)
+      rotate(45deg);
+  }
+
+
+  .hero-navbar.is-open .mobile-menu span:nth-child(2) {
+    opacity: 0;
+  }
+
+
+  .hero-navbar.is-open .mobile-menu span:nth-child(3) {
+    transform:
+      translateY(-7px)
+      rotate(-45deg);
+  }
+
+
+  /* Mobile panel animation */
+
+  .hero-navbar.is-open .navbar-links,
+  .hero-navbar.is-open .navbar-actions {
+    animation:
+      navbar-panel-in 0.2s ease-out;
+  }
+}
+
+
+/* ==========================================================================
+   Mobile Menu Animation
+   ========================================================================== */
+
+@keyframes navbar-panel-in {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: none;
+  }
+}
+
+
+/* ==========================================================================
+   Small Phones
+   ========================================================================== */
+
+@media (max-width: 380px) {
+
+  .logo-text {
+    font-size: 1.125rem;
+  }
+
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-navbar *,
+  .hero-navbar *::before,
+  .hero-navbar *::after {
+    transition: none !important;
+
+    animation: none !important;
+  }
+}

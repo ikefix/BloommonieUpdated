@@ -1,0 +1,344 @@
+/* ===================================================
+   System requirements + download panel — responsive
+   Mobile: stacked  ->  1000+: two halves side by side
+   =================================================== */
+
+.dr {
+  --dr-blue: #2563eb;
+  --dr-blue-dark: #1d4ed8;
+  --dr-blue-soft: #eaf1ff;
+  --dr-navy: #0b1f44;
+  --dr-text: #64748b;
+  --dr-body: #334155;
+  --dr-divider: #d6e2f7;
+
+  width: 100%;
+  padding: 24px 16px;
+  background: #fff;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  text-align: left;
+  -webkit-text-size-adjust: 100%;
+}
+
+.dr,
+.dr *,
+.dr *::before,
+.dr *::after {
+  box-sizing: border-box;
+}
+
+.dr__panel {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  padding: 24px 20px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #f3f7ff 0%, #eef4ff 100%);
+}
+
+.dr__panel > * {
+  min-width: 0;
+}
+
+/* ---------- Shared type ---------- */
+.dr__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--dr-navy);
+}
+
+.dr__sub {
+  margin: 6px 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--dr-text);
+}
+
+/* ---------- Left: requirements ---------- */
+.dr__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.dr__gear {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--dr-blue);
+}
+
+.dr__gear svg {
+  width: 32px;
+  height: 32px;
+}
+
+.dr__list {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 12px;
+}
+
+.dr__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.dr__item-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: #64748b;
+}
+
+.dr__item-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.dr__item-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.dr__item-text strong {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--dr-body);
+}
+
+.dr__item-text small {
+  margin-top: 1px;
+  font-size: 0.6875rem;
+  color: var(--dr-text);
+}
+
+/* ---------- Right: call to action ---------- */
+.dr__cta {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--dr-divider);
+}
+
+.dr__laptop {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--dr-blue);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.14);
+}
+
+.dr__laptop svg {
+  width: 28px;
+  height: 28px;
+}
+
+.dr__cta-body {
+  min-width: 0;
+}
+
+.dr__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.dr__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.dr__btn:hover {
+  transform: translateY(-1px);
+}
+
+.dr__btn:focus-visible {
+  outline: 2px solid var(--dr-blue);
+  outline-offset: 3px;
+}
+
+.dr__btn-icon,
+.dr__btn-arrow {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.dr__btn-icon svg,
+.dr__btn-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.dr__btn--primary {
+  background: var(--dr-blue);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+}
+
+.dr__btn--primary:hover {
+  background: var(--dr-blue-dark);
+}
+
+.dr__btn--outline {
+  background: #fff;
+  border: 1.5px solid #c9d9f4;
+  color: var(--dr-blue);
+}
+
+.dr__btn--outline:hover {
+  background: #f5f9ff;
+}
+
+/* ===================================================
+   560+
+   =================================================== */
+@media (min-width: 560px) {
+  .dr {
+    padding: 28px 24px;
+  }
+
+  .dr__panel {
+    padding: 28px 28px;
+  }
+
+  .dr__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .dr__item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ===================================================
+   1000+  two halves with a vertical divider
+   =================================================== */
+@media (min-width: 1000px) {
+  .dr {
+    padding: 32px 24px;
+  }
+
+  .dr__panel {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+    gap: 0;
+    padding: 28px 0;
+  }
+
+  .dr__req {
+    padding: 0 28px 0 36px;
+  }
+
+  .dr__cta {
+    padding: 0 28px 0 28px;
+    border-top: 0;
+    border-left: 1px solid var(--dr-divider);
+    align-items: center;
+  }
+
+  .dr__list {
+    gap: 8px;
+  }
+
+  .dr__item {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding-right: 8px;
+    border-right: 1px solid var(--dr-divider);
+  }
+
+  .dr__item-icon,
+  .dr__item-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .dr__item-text strong {
+    font-size: 0.6875rem;
+    white-space: nowrap;
+  }
+
+  .dr__btn {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .dr__item:last-child {
+    border-right: 0;
+  }
+}
+
+/* ===================================================
+   1200+  give the buttons room to sit side by side
+   =================================================== */
+@media (min-width: 1200px) {
+  .dr__panel {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 580px);
+  }
+}
+
+/* ===================================================
+   Small phones: full-width buttons
+   =================================================== */
+@media (max-width: 440px) {
+  .dr__cta {
+    flex-direction: column;
+  }
+
+  .dr__buttons {
+    width: 100%;
+  }
+
+  .dr__btn {
+    flex: 1 1 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dr__btn {
+    transition: none;
+  }
+
+  .dr__btn:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,435 @@
+/* ========================================
+   TESTIMONIAL SECTION
+======================================== */
+
+.Testimonial {
+  width: 100%;
+  padding: 105px 20px 110px;
+
+  background: #050a14;
+  color: #ffffff;
+}
+
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.testimonial-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.testimonial-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+
+/* ========================================
+   BADGE
+======================================== */
+
+.testimonial-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 13px;
+
+  border: 1px solid #214c85;
+  border-radius: 20px;
+
+  background: rgba(33, 89, 160, 0.12);
+
+  color: #58a0ff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.7px;
+}
+
+
+/* ========================================
+   HEADING
+======================================== */
+
+.testimonial-header h2 {
+  margin: 22px 0 16px;
+
+  color: #f7f9fc;
+
+  font-size: clamp(38px, 4vw, 42px);
+  font-weight: 800;
+
+  line-height: 1.15;
+  letter-spacing: -1.6px;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.testimonial-header p {
+  max-width: 820px;
+
+  margin: 0 auto;
+
+  color: #92a0b5;
+
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   GRID
+======================================== */
+
+.testimonial-grid {
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.9fr;
+
+  gap: 24px;
+
+  margin-top: 34px;
+}
+
+
+/* ========================================
+   CARD
+======================================== */
+
+.testimonial-card {
+  overflow: hidden;
+
+  border: 1px solid #17263d;
+  border-radius: 17px;
+
+  background: #091426;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.2);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #243b5b;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ========================================
+   FEATURED CARD
+======================================== */
+
+.testimonial-featured {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+
+/* ========================================
+   VIDEO CONTAINER
+======================================== */
+
+.testimonial-video {
+  position: relative;
+
+  width: 100%;
+  height: 190px;
+
+  overflow: hidden;
+
+  background: #101d2e;
+}
+
+
+.testimonial-featured .testimonial-video {
+  height: 280px;
+}
+
+
+/* ========================================
+   VIDEO
+======================================== */
+
+.testimonial-video video {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  background: #101d2e;
+}
+
+
+/* ========================================
+   VIDEO OVERLAY
+======================================== */
+
+.testimonial-video::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.02),
+      rgba(0, 0, 0, 0.15)
+    );
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   PLAY BUTTON
+======================================== */
+
+.testimonial-play {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #3988f5;
+
+  transform: translate(-50%, -50%);
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.testimonial-featured .testimonial-play {
+  width: 54px;
+  height: 54px;
+}
+
+
+.testimonial-play:hover {
+  background: #4b96ff;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.08);
+}
+
+
+/* ========================================
+   PLAY TRIANGLE
+======================================== */
+
+.testimonial-play span {
+  display: block;
+
+  width: 0;
+  height: 0;
+
+  margin-left: 4px;
+
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+
+  border-left: 12px solid #ffffff;
+}
+
+
+/* ========================================
+   DETAILS
+======================================== */
+
+.testimonial-details {
+  padding: 16px 16px 18px;
+}
+
+
+.testimonial-details h3 {
+  margin: 0 0 5px;
+
+  color: #f5f7fb;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+.testimonial-role {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #8493a9;
+
+  font-size: 12px;
+}
+
+
+.testimonial-details p {
+  margin: 0;
+
+  color: #8796ab;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+  .Testimonial {
+    padding: 85px 20px 90px;
+  }
+
+
+  .testimonial-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+
+  .testimonial-featured {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+
+  .testimonial-featured .testimonial-video {
+    height: 320px;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 650px) {
+
+  .Testimonial {
+    padding: 70px 16px 80px;
+  }
+
+
+  .testimonial-header h2 {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+
+  .testimonial-header p {
+    font-size: 15px;
+  }
+
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+
+  .testimonial-featured {
+    grid-column: span 1;
+  }
+
+
+  .testimonial-featured .testimonial-video {
+    height: 250px;
+  }
+
+
+  .testimonial-video {
+    height: 210px;
+  }
+
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 420px) {
+
+  .Testimonial {
+    padding: 60px 14px 70px;
+  }
+
+
+  .testimonial-header h2 {
+    font-size: 29px;
+  }
+
+
+  .testimonial-header p {
+    font-size: 14px;
+  }
+
+
+  .testimonial-featured .testimonial-video {
+    height: 220px;
+  }
+
+
+  .testimonial-video {
+    height: 190px;
+  }
+
+
+  .testimonial-play {
+    width: 46px;
+    height: 46px;
+  }
+
+}

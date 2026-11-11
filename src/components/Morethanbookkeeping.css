@@ -1,0 +1,272 @@
+/* ===================================================
+   More than just bookkeeping — responsive
+   Mobile: stacked (1 col features)  ->  640+: 2 cols
+   900+: intro on top, 5 cols with dividers
+   1200+: intro on the left, features on the right
+   =================================================== */
+
+.mtb {
+  --mtb-blue: #2563eb;
+  --mtb-blue-dark: #1d4ed8;
+  --mtb-blue-soft: #eaf1ff;
+  --mtb-navy: #0b1f44;
+  --mtb-text: #64748b;
+  --mtb-divider: #d6e2f7;
+
+  width: 100%;
+  background: linear-gradient(180deg, #f3f7ff 0%, #eef4ff 100%);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  text-align: left;
+  -webkit-text-size-adjust: 100%;
+}
+
+.mtb *,
+.mtb *::before,
+.mtb *::after {
+  box-sizing: border-box;
+}
+
+.mtb__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+
+/* ---------- Intro ---------- */
+.mtb__title {
+  margin: 0;
+  font-size: clamp(1.625rem, 1.2rem + 1.8vw, 2.125rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--mtb-navy);
+}
+
+.mtb__text {
+  margin: 12px 0 0;
+  max-width: 24rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--mtb-text);
+}
+
+.mtb__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  margin-top: 22px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--mtb-blue);
+  color: #fff;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.mtb__cta:hover {
+  background: var(--mtb-blue-dark);
+  transform: translateY(-1px);
+}
+
+.mtb__cta:focus-visible {
+  outline: 2px solid var(--mtb-blue);
+  outline-offset: 3px;
+}
+
+.mtb__cta-icon {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s;
+}
+
+.mtb__cta:hover .mtb__cta-icon {
+  transform: translateX(3px);
+}
+
+.mtb__cta-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Feature list ---------- */
+.mtb__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.mtb__item {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  grid-template-areas:
+    "icon title"
+    "icon text";
+  column-gap: 14px;
+  row-gap: 2px;
+  align-items: start;
+  padding: 16px 0;
+  border-top: 1px solid var(--mtb-divider);
+}
+
+.mtb__item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.mtb__icon {
+  grid-area: icon;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--mtb-blue);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.14);
+}
+
+.mtb__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.mtb__item-title {
+  grid-area: title;
+  margin: 0;
+  align-self: end;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--mtb-navy);
+}
+
+.mtb__item-text {
+  grid-area: text;
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--mtb-text);
+}
+
+/* ===================================================
+   640+  features in two columns
+   =================================================== */
+@media (min-width: 640px) {
+  .mtb__inner {
+    padding: 48px 32px 56px;
+    gap: 36px;
+  }
+
+  .mtb__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 32px;
+  }
+
+  .mtb__item:first-child {
+    padding-top: 16px;
+    border-top: 1px solid var(--mtb-divider);
+  }
+
+  /* first row of two has no top border */
+  .mtb__item:nth-child(-n + 2) {
+    border-top: 0;
+    padding-top: 0;
+  }
+}
+
+/* ===================================================
+   900+  five columns, icon on top, vertical dividers
+   =================================================== */
+@media (min-width: 900px) {
+  .mtb__list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: 0;
+  }
+
+  .mtb__item,
+  .mtb__item:first-child,
+  .mtb__item:nth-child(-n + 2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 4px 18px;
+    border-top: 0;
+    border-left: 1px solid var(--mtb-divider);
+  }
+
+  .mtb__item:first-child {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .mtb__item:last-child {
+    padding-right: 0;
+  }
+
+  .mtb__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .mtb__item-title {
+    margin-top: 16px;
+    align-self: auto;
+    font-size: 0.8125rem;
+  }
+
+  .mtb__item-text {
+    margin-top: 8px;
+    font-size: 0.6875rem;
+    line-height: 1.6;
+  }
+}
+
+/* ===================================================
+   1200+  intro on the left, features on the right
+   =================================================== */
+@media (min-width: 1200px) {
+  .mtb__inner {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 40px;
+    padding: 56px 24px 64px;
+  }
+
+  .mtb__item {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mtb__item-title {
+    font-size: 0.8125rem;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .mtb__cta,
+  .mtb__cta-icon {
+    transition: none;
+  }
+
+  .mtb__cta:hover,
+  .mtb__cta:hover .mtb__cta-icon {
+    transform: none;
+  }
+}

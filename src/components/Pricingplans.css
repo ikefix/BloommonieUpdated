@@ -1,0 +1,266 @@
+/* ===================================================
+   Pricing Plans — responsive
+   Mobile-first: 1 column -> 2 columns (640+) -> 4 columns (1100+)
+   =================================================== */
+
+.pp {
+  --pp-blue: #2563eb;
+  --pp-blue-dark: #1d4ed8;
+  --pp-blue-soft: #eaf1ff;
+  --pp-navy: #0b1f44;
+  --pp-text: #64748b;
+  --pp-body: #334155;
+  --pp-border: #dbe5f5;
+
+  width: 100%;
+  background: #fff;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  text-align: left;
+  -webkit-text-size-adjust: 100%;
+}
+
+.pp *,
+.pp *::before,
+.pp *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Grid ---------- */
+.pp__grid {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 32px 16px 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* ---------- Card ---------- */
+.pp__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px 26px;
+  background: #fff;
+  border: 1px solid var(--pp-border);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.pp__card:hover {
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.12);
+  transform: translateY(-2px);
+}
+
+.pp__card--popular {
+  border: 2px solid var(--pp-blue);
+  box-shadow: 0 14px 34px rgba(37, 99, 235, 0.15);
+}
+
+.pp__ribbon {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--pp-blue);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ---------- Header ---------- */
+.pp__icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--pp-blue-soft);
+  color: var(--pp-blue);
+}
+
+.pp__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.pp__name {
+  margin: 18px 0 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--pp-navy);
+}
+
+.pp__desc {
+  margin: 6px 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--pp-text);
+}
+
+/* ---------- Price ---------- */
+.pp__price {
+  margin-top: 16px;
+  min-height: 68px; /* room for the yearly "Billed ..." line */
+}
+
+.pp__amount {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pp__figure {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--pp-navy);
+}
+
+.pp__per {
+  font-size: 0.8125rem;
+  color: var(--pp-text);
+}
+
+.pp__billed {
+  margin: 8px 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--pp-blue);
+}
+
+.pp__custom-title {
+  margin: 0;
+  font-size: 1.625rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--pp-navy);
+}
+
+.pp__custom-note {
+  margin: 6px 0 0;
+  font-size: 0.8125rem;
+  color: var(--pp-text);
+}
+
+/* ---------- Button ---------- */
+.pp__btn {
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 16px;
+  border: 1.5px solid var(--pp-blue);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.pp__btn--outline {
+  background: #fff;
+  color: var(--pp-blue);
+}
+
+.pp__btn--outline:hover {
+  background: #eff5ff;
+}
+
+.pp__btn--primary {
+  background: var(--pp-blue);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.28);
+}
+
+.pp__btn--primary:hover {
+  background: var(--pp-blue-dark);
+  border-color: var(--pp-blue-dark);
+}
+
+.pp__btn:focus-visible {
+  outline: 2px solid var(--pp-blue);
+  outline-offset: 3px;
+}
+
+/* ---------- Features ---------- */
+.pp__features {
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pp__feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--pp-body);
+}
+
+.pp__check {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  color: var(--pp-blue);
+}
+
+.pp__check svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ===================================================
+   640+  two columns
+   =================================================== */
+@media (min-width: 640px) {
+  .pp__desc {
+    min-height: 2.9em; /* keeps prices lined up across columns */
+  }
+
+  .pp__grid {
+    max-width: 780px;
+    padding: 40px 24px 56px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* ===================================================
+   1100+  four columns
+   =================================================== */
+@media (min-width: 1100px) {
+  .pp__grid {
+    max-width: 1200px;
+    padding: 48px 24px 64px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .pp__card,
+  .pp__btn {
+    transition: none;
+  }
+
+  .pp__card:hover {
+    transform: none;
+  }
+}

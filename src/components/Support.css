@@ -1,0 +1,379 @@
+.Support {
+  width: 100%;
+  padding: 45px 0 35px;
+  background: #f8fbff;
+}
+
+.Support-container {
+  width: 90%;
+  max-width: 1180px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 36% 64%;
+  align-items: center;
+  gap: 30px;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.Support-left {
+  position: relative;
+
+  min-height: 230px;
+
+  display: flex;
+  align-items: center;
+}
+
+/* =========================
+   SUPPORT PERSON
+========================= */
+
+.Support-person {
+  position: absolute;
+  left: 0;
+  bottom: -35px;
+
+  width: 170px;
+  height: 220px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  z-index: 1;
+}
+
+.Support-person img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+/* =========================
+   SUPPORT CARD
+========================= */
+
+.Support-card {
+  position: relative;
+
+  width: 245px;
+
+  margin-left: 105px;
+  padding: 22px 20px 20px 78px;
+
+  background: #ffffff;
+
+  border: 1px solid #edf1f7;
+  border-radius: 9px;
+
+  box-shadow: 0 5px 20px rgba(30, 60, 100, 0.06);
+
+  z-index: 2;
+}
+
+.Support-card h3 {
+  margin: 0 0 7px;
+
+  color: #14284b;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.Support-card p {
+  margin: 0 0 15px;
+
+  color: #718096;
+
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.Support-card button {
+  padding: 9px 14px;
+
+  border: none;
+  border-radius: 5px;
+
+  color: #ffffff;
+  background: #2878f0;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.Support-card button:hover {
+  background: #1769df;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.Support-right {
+  width: 100%;
+}
+
+.Support-heading {
+  margin-bottom: 16px;
+}
+
+.Support-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 7px;
+  padding: 4px 10px;
+
+  color: #2878f0;
+  background: #eef5ff;
+
+  border-radius: 20px;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.Support-heading h2 {
+  margin: 0;
+
+  color: #14284b;
+
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.FAQ-list {
+  width: 100%;
+}
+
+.FAQ-item {
+  margin-bottom: 8px;
+
+  background: #ffffff;
+
+  border: 1px solid #e6ebf2;
+  border-radius: 7px;
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.FAQ-item:hover {
+  border-color: #d7e3f5;
+}
+
+.FAQ-active {
+  border-color: #cbdcff;
+  box-shadow: 0 4px 15px rgba(30, 80, 150, 0.04);
+}
+
+/* =========================
+   FAQ QUESTION
+========================= */
+
+.FAQ-question {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 13px 15px;
+
+  border: none;
+  background: transparent;
+
+  color: #243858;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 500;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.FAQ-question > span:first-child {
+  padding-right: 15px;
+}
+
+/* =========================
+   ARROW
+========================= */
+
+.FAQ-arrow {
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #68788f;
+
+  transition: transform 0.25s ease;
+}
+
+.FAQ-arrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+.FAQ-arrow-active {
+  transform: rotate(180deg);
+  color: #2878f0;
+}
+
+/* =========================
+   FAQ ANSWER
+========================= */
+
+.FAQ-answer {
+  max-height: 0;
+
+  overflow: hidden;
+
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
+}
+
+.FAQ-answer-open {
+  max-height: 150px;
+}
+
+.FAQ-answer p {
+  margin: 0;
+
+  padding: 0 15px 14px;
+
+  color: #718096;
+
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .Support {
+    padding: 45px 0;
+  }
+
+  .Support-container {
+    width: 92%;
+
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .Support-left {
+    min-height: 210px;
+    justify-content: center;
+  }
+
+  .Support-person {
+    left: 50%;
+    transform: translateX(-120px);
+  }
+
+  .Support-card {
+    margin-left: 100px;
+  }
+
+  .Support-right {
+    width: 100%;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .Support {
+    padding: 40px 0;
+  }
+
+  .Support-container {
+    width: 92%;
+  }
+
+  .Support-left {
+    min-height: 200px;
+  }
+
+  .Support-person {
+    width: 145px;
+    height: 195px;
+
+    left: 50%;
+    transform: translateX(-125px);
+
+    bottom: -25px;
+  }
+
+  .Support-card {
+    width: 205px;
+
+    margin-left: 70px;
+
+    padding: 18px 15px 17px 62px;
+  }
+
+  .Support-card h3 {
+    font-size: 13px;
+  }
+
+  .Support-card p {
+    font-size: 8.5px;
+  }
+
+  .Support-card button {
+    padding: 8px 11px;
+    font-size: 8px;
+  }
+
+  .Support-heading h2 {
+    font-size: 21px;
+  }
+
+  .FAQ-question {
+    padding: 12px;
+    font-size: 9px;
+  }
+
+  .FAQ-answer p {
+    padding: 0 12px 12px;
+    font-size: 8.5px;
+  }
+}

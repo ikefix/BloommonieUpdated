@@ -1,0 +1,263 @@
+/* ========================================
+   DOWNLOAD APP SECTION
+======================================== */
+
+.Downloadapp {
+  width: 100%;
+  overflow: hidden;
+
+  padding: 40px 20px 2px;
+
+  background:
+    radial-gradient(
+      circle at 10% 50%,
+      #2869e9 0%,
+      #153f91 35%,
+      #081a3c 65%,
+      #061022 100%
+    );
+
+  color: #ffffff;
+}
+
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.download-container {
+  width: 100%;
+  max-width: 1350px;
+
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.download-content {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+
+
+/* ========================================
+   BADGE
+======================================== */
+
+.download-badge {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 15px;
+
+  border: 1px solid rgba(66, 147, 255, 0.6);
+
+  border-radius: 30px;
+
+  background: rgba(38, 113, 230, 0.12);
+
+  color: #54a5ff;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.7px;
+}
+
+
+/* ========================================
+   HEADING
+======================================== */
+
+.download-content h2 {
+  margin: 20px 0 12px;
+
+  color: #ffffff;
+
+  font-size: clamp(38px, 5vw, 54px);
+
+  font-weight: 800;
+
+  line-height: 1.1;
+
+  letter-spacing: -2px;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.download-content p {
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  color: #aebbd1;
+
+  font-size: 18px;
+
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   IMAGE
+======================================== */
+
+.download-image {
+  width: 100%;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+
+.download-image img {
+  display: block;
+  
+
+  /* width: 100%;
+
+  max-width: 1350px; */
+
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+  .Downloadapp {
+    padding: 70px 15px 50px;
+  }
+
+
+  .download-content h2 {
+    font-size: 42px;
+  }
+
+
+  .download-content p {
+    font-size: 16px;
+  }
+
+
+  .download-image {
+    margin-top: 10px;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 650px) {
+
+  .Downloadapp {
+    padding: 60px 10px 40px;
+
+    background:
+      radial-gradient(
+        circle at 30% 30%,
+        #2869e9 0%,
+        #153f91 38%,
+        #081a3c 75%
+      );
+  }
+
+
+  .download-content {
+    margin-bottom: 10px;
+  }
+
+
+  .download-badge {
+    font-size: 10px;
+
+    padding: 6px 12px;
+  }
+
+
+  .download-content h2 {
+    margin-top: 16px;
+
+    font-size: 32px;
+
+    letter-spacing: -1px;
+  }
+
+
+  .download-content p {
+    max-width: 500px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+  }
+
+
+  .download-image {
+    width: 110%;
+
+    margin-left: -5%;
+
+    margin-top: 10px;
+  }
+
+
+  .download-image img {
+    width: 100%;
+  }
+
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 420px) {
+
+  .Downloadapp {
+    padding-top: 50px;
+  }
+
+
+  .download-content h2 {
+    font-size: 28px;
+  }
+
+
+  .download-content p {
+    font-size: 13px;
+  }
+
+
+  .download-image {
+    width: 125%;
+
+    margin-left: -5.5%;
+  }
+
+}

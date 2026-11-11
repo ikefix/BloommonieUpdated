@@ -1,0 +1,169 @@
+.dh {
+  padding: 48px 24px 56px;
+  background: linear-gradient(180deg, #f3f8ff 0%, #eaf2ff 100%);
+  overflow: hidden;
+}
+
+.dh__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ---------- left ---------- */
+.dh__badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #dce8ff;
+  color: #1456e8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.dh__title {
+  margin: 16px 0 18px;
+  color: #0a1f5c;
+  font-size: clamp(34px, 4.6vw, 52px);
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.dh__text {
+  max-width: 470px;
+  margin: 0 0 28px;
+  color: #5d6b8a;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.dh__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.dh__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dh__btn:hover {
+  transform: translateY(-2px);
+}
+
+.dh__btn--primary {
+  background: #1456e8;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(20, 86, 232, 0.28);
+}
+
+.dh__btn--outline {
+  border: 1px solid #cddcf8;
+  background: #fff;
+  color: #1456e8;
+}
+
+.dh__btn--outline:hover {
+  box-shadow: 0 8px 20px rgba(20, 86, 232, 0.12);
+}
+
+.dh__btn-icon svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+.dh__btn-arrow svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.dh__free {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 0;
+  color: #5d6b8a;
+  font-size: 13px;
+}
+
+.dh__free-icon svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+  color: #1456e8;
+}
+
+/* ---------- right ---------- */
+.dh__visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 340px;
+}
+
+.dh__blob {
+  position: absolute;
+  inset: 6% 4% 4% 0;
+  border-radius: 55% 45% 50% 50% / 50% 55% 45% 50%;
+  background: radial-gradient(circle at 40% 40%, #d6e5ff 0%, #e6efff 75%);
+}
+
+.dh__laptop {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+}
+
+.dh__note {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  color: #1456e8;
+  font-family: "Caveat", "Segoe Script", "Brush Script MT", cursive;
+  font-size: 22px;
+  line-height: 1.15;
+  text-align: left;
+  transform: rotate(-6deg);
+}
+
+.dh__note-arrow {
+  position: absolute;
+  left: -34px;
+  bottom: -46px;
+}
+
+.dh__note-arrow svg {
+  display: block;
+  width: 42px;
+  height: 42px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .dh__inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .dh__note { display: none; }
+}
+
+@media (max-width: 560px) {
+  .dh { padding: 36px 16px 44px; }
+  .dh__btn { width: 100%; justify-content: center; }
+}

@@ -1,0 +1,404 @@
+/* ===================================================
+   Pricing Hero — photo + blob + cards, fully responsive
+   Breakpoints (mobile-first): 0–360, 361–479, 480+, 640+, 768+, 1024+, 1280+
+   The right side is a fixed-ratio stage (520 x 340). The photo, blob and
+   cards are positioned inside it in %, and the cards scale down on phones.
+   =================================================== */
+
+.ph {
+  --ph-blue: #2563eb;
+  --ph-blue-light: #dbeafe;
+  --ph-navy: #0b1f44;
+  --ph-text: #64748b;
+  --ph-card-scale: 0.6; /* overridden per breakpoint below */
+
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f3f7ff 0%, #eaf1ff 100%);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  text-align: left;
+  width: 100%;
+}
+
+.ph *,
+.ph *::before,
+.ph *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Layout ---------- */
+.ph__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.ph__inner > * {
+  min-width: 0;
+}
+
+/* ---------- Left: copy ---------- */
+.ph__badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--ph-blue-light);
+  color: var(--ph-blue);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ph__title {
+  margin: 16px 0 0;
+  font-size: clamp(1.875rem, 1.2rem + 3.4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ph-navy);
+  text-wrap: balance;
+}
+
+.ph__text {
+  margin: 14px 0 0;
+  max-width: 30rem;
+  font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
+  line-height: 1.65;
+  color: var(--ph-text);
+}
+
+/* ---------- Billing toggle ---------- */
+.ph__toggle {
+  display: flex;
+  width: 100%;
+  max-width: 340px;
+  margin-top: 24px;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid var(--ph-blue-light);
+  border-radius: 999px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.ph__toggle-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #475569;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.ph__toggle-btn:hover {
+  color: var(--ph-blue);
+}
+
+.ph__toggle-btn:focus-visible {
+  outline: 2px solid var(--ph-blue);
+  outline-offset: 2px;
+}
+
+.ph__toggle-btn.is-active {
+  background: var(--ph-blue);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.ph__save {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--ph-blue);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- Right: stage ---------- */
+.ph__visual {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  aspect-ratio: 520 / 340;
+}
+
+/* blue blob behind the photo */
+.ph__blob {
+  position: absolute;
+  top: 5%;
+  right: 9%;
+  z-index: 1;
+  width: 55%;
+  height: 76%;
+  border-radius: 40px;
+  background: rgba(191, 219, 254, 0.5);
+  transform: rotate(6deg);
+}
+
+/* the photo (cut-out PNG, bottom-aligned)
+   sized by WIDTH (52% of the stage) so it can't blow up to its natural
+   size, and scoped with extra specificity to beat global img resets */
+.ph .ph__visual .pricing-hero-mockup {
+  position: absolute;
+  bottom: 0;
+  right: 18%;
+  left: auto;
+  top: auto;
+  z-index: 10;
+  display: block;
+  width: 52%;
+  height: auto;
+  max-width: none;
+  max-height: 100%;
+  margin: 0;
+  object-fit: contain;
+  object-position: bottom;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ---------- Floating cards ---------- */
+.ph__card {
+  position: absolute;
+  z-index: 20;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+}
+
+/* Total sales — anchored top-left */
+.ph__sales {
+  top: 7%;
+  left: 0;
+  width: 176px;
+  padding: 16px;
+  transform: scale(var(--ph-card-scale));
+  transform-origin: top left;
+}
+
+.ph__sales-label {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--ph-text);
+}
+
+.ph__sales-value {
+  margin: 4px 0 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ph-navy);
+}
+
+.ph__sales-delta {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.ph__sales-chart {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin-top: 8px;
+}
+
+/* Stock alert — anchored top-right */
+.ph__alert {
+  top: 0;
+  right: 0;
+  width: 160px;
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  transform: scale(var(--ph-card-scale));
+  transform-origin: top right;
+}
+
+.ph__alert-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+.ph__alert-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ph__alert-title {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ph-navy);
+}
+
+.ph__alert-text {
+  margin: 0;
+  font-size: 9px;
+  line-height: 1.35;
+  color: var(--ph-text);
+}
+
+/* Feature menu — anchored bottom-right */
+.ph__menu {
+  bottom: 7%;
+  right: 0;
+  width: 144px;
+  margin: 0;
+  padding: 16px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: scale(var(--ph-card-scale));
+  transform-origin: bottom right;
+}
+
+.ph__menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.ph__menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: var(--ph-blue);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+/* ===================================================
+   Breakpoints
+   =================================================== */
+
+/* 361 – 420 */
+@media (min-width: 361px) {
+  .ph { --ph-card-scale: 0.7; }
+}
+
+/* 421 – 479 */
+@media (min-width: 421px) {
+  .ph { --ph-card-scale: 0.8; }
+}
+
+/* ≤ 360: tighter padding */
+@media (max-width: 360px) {
+  .ph__inner {
+    padding: 32px 12px 40px;
+  }
+
+  .ph__toggle-btn {
+    padding: 10px 10px;
+    font-size: 0.8125rem;
+  }
+}
+
+/* 480+ */
+@media (min-width: 480px) {
+  .ph { --ph-card-scale: 0.88; }
+
+  .ph__inner {
+    padding: 48px 20px 56px;
+    gap: 36px;
+  }
+}
+
+/* 640+ */
+@media (min-width: 640px) {
+  .ph { --ph-card-scale: 1; }
+
+  .ph__inner {
+    padding: 56px 32px 64px;
+    gap: 40px;
+  }
+
+  .ph__toggle {
+    display: inline-flex;
+    width: auto;
+    max-width: none;
+  }
+
+  .ph__toggle-btn {
+    flex: none;
+    padding: 10px 28px;
+  }
+}
+
+/* 768+ */
+@media (min-width: 768px) {
+  .ph__inner {
+    padding: 64px 40px 72px;
+  }
+
+  .ph__text {
+    max-width: 34rem;
+  }
+}
+
+/* 1024+: two columns */
+@media (min-width: 1024px) {
+  .ph__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 56px;
+    padding: 72px 24px 80px;
+  }
+
+  .ph__text {
+    max-width: 28rem;
+  }
+
+  .ph__visual {
+    margin: 0 0 0 auto;
+  }
+}
+
+/* 1280+ */
+@media (min-width: 1280px) {
+  .ph__inner {
+    gap: 72px;
+    padding: 88px 24px 96px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ph__toggle-btn {
+    transition: none;
+  }
+}

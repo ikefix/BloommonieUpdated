@@ -1,0 +1,151 @@
+.getstarted {
+  --gs-blue: #1f5eff;
+  --gs-navy: #0b1a4a;
+  --gs-text: #4a5878;
+  --gs-muted: #6b7a99;
+  --gs-badge-bg: #e4edff;
+
+  width: 100%;
+  background: linear-gradient(180deg, #f5f8ff 0%, #f0f5ff 100%);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.getstarted__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: 56px;
+}
+
+/* ---------- Left content ---------- */
+
+.getstarted__content {
+  max-width: 480px;
+}
+
+.getstarted__badge {
+  display: inline-block;
+  padding: 6px 14px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: var(--gs-badge-bg);
+  color: var(--gs-blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.getstarted__title {
+  margin: 0 0 14px;
+  color: var(--gs-navy);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.getstarted__subtitle {
+  margin: 0 0 36px;
+  color: var(--gs-text);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+/* ---------- Steps ---------- */
+
+.getstarted__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.getstarted__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.getstarted__number {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gs-blue);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 6px 14px rgba(31, 94, 255, 0.3);
+}
+
+.getstarted__step-title {
+  margin: 0 0 4px;
+  color: var(--gs-navy);
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.getstarted__step-text {
+  margin: 0;
+  color: var(--gs-muted);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+/* ---------- Right visual ---------- */
+
+.getstarted__visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.getstarted__image {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 992px) {
+  .getstarted__container {
+    padding: 56px 24px;
+    gap: 36px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .getstarted__container {
+    grid-template-columns: 1fr;
+    padding: 44px 20px;
+  }
+
+  .getstarted__content {
+    max-width: 100%;
+  }
+
+  .getstarted__subtitle {
+    margin-bottom: 28px;
+  }
+
+  .getstarted__steps {
+    gap: 22px;
+  }
+
+  .getstarted__visual {
+    justify-content: center;
+  }
+}

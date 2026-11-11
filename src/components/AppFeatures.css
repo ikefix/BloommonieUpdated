@@ -1,0 +1,98 @@
+.af {
+  padding: 56px 24px 64px;
+  background: #fff;
+}
+
+.af__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.af__badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #e6efff;
+  color: #1456e8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.af__title {
+  margin: 14px 0 12px;
+  color: #0a1f5c;
+  font-size: clamp(26px, 3.4vw, 34px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.af__subtitle {
+  margin: 0 auto 36px;
+  max-width: 640px;
+  color: #5d6b8a;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.af__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  text-align: left;
+}
+
+.af__card {
+  padding: 24px 26px 26px;
+  border: 1px solid #dbe6fb;
+  border-radius: 12px;
+  background: #f8fbff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.af__card:hover {
+  transform: translateY(-3px);
+  border-color: #b9cffa;
+  box-shadow: 0 10px 28px rgba(20, 86, 232, 0.1);
+}
+
+.af__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background: #e1ebff;
+  color: #1456e8;
+}
+
+.af__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.af__card-title {
+  margin: 0 0 8px;
+  color: #0a1f5c;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.af__card-text {
+  margin: 0;
+  color: #6b7897;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .af__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .af { padding: 44px 16px; }
+  .af__grid { grid-template-columns: 1fr; }
+  .af__subtitle br { display: none; }
+}

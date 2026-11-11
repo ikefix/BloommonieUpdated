@@ -1,0 +1,549 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap");
+
+.loginsection {
+  --bg: #080b14;
+  --bg-soft: #0c1120;
+  --panel: #111827;
+  --panel-2: #0f1522;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-soft: rgba(255, 255, 255, 0.06);
+  --blue: #3b82f6;
+  --blue-bright: #5b9bff;
+  --blue-dim: rgba(59, 130, 246, 0.12);
+  --text: #eef1f7;
+  --muted: #8b93a7;
+  --muted-2: #5c6376;
+  --green: #34d399;
+  --radius: 14px;
+
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(
+      1200px 600px at 15% -10%,
+      rgba(59, 130, 246, 0.1),
+      transparent 60%
+    ),
+    radial-gradient(900px 500px at 100% 100%, rgba(59, 130, 246, 0.06), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.loginsection *,
+.loginsection *::before,
+.loginsection *::after {
+  box-sizing: border-box;
+}
+
+.ls-shell {
+  width: 100%;
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- LEFT: brand / product panel ---------- */
+.ls-brand-panel {
+  position: relative;
+  padding: 52px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: radial-gradient(
+        circle at 1px 1px,
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 0
+      )
+      0 0 / 22px 22px,
+    linear-gradient(180deg, #0a0e1a 0%, #0a0f1c 100%);
+  border-right: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+
+.ls-brand-panel::after {
+  content: "";
+  position: absolute;
+  top: -140px;
+  left: -120px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.25), transparent 70%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.ls-brand-top {
+  position: relative;
+  z-index: 2;
+}
+
+.ls-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.ls-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--blue-bright), #1e40af);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 6px 16px rgba(59, 130, 246, 0.35);
+}
+
+.ls-eyebrow {
+  margin-top: 56px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  background: var(--blue-dim);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  padding: 6px 12px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.ls-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--blue-bright);
+  box-shadow: 0 0 8px var(--blue-bright);
+}
+
+.ls-brand-headline {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: 38px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-top: 18px;
+  max-width: 420px;
+}
+
+.ls-brand-sub {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.6;
+  max-width: 380px;
+}
+
+/* mini dashboard mock */
+.ls-mini-dash {
+  position: relative;
+  z-index: 2;
+  margin-top: 38px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+}
+
+.ls-mini-dash-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.ls-who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ls-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5b9bff, #2451c9);
+  flex-shrink: 0;
+}
+
+.ls-who-name {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ls-who-sub {
+  font-size: 10.5px;
+  color: var(--muted-2);
+}
+
+.ls-stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.ls-stat {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 11px 12px;
+}
+
+.ls-stat-label {
+  font-size: 9.5px;
+  color: var(--muted-2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ls-stat-value {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.ls-stat-flag {
+  font-size: 9.5px;
+  color: var(--green);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ls-curve-card {
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 12px 12px 6px;
+}
+
+.ls-curve-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.ls-curve-title {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ls-curve-delta {
+  font-size: 10px;
+  color: var(--green);
+  font-family: "JetBrains Mono", monospace;
+}
+
+.ls-brand-bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: var(--muted-2);
+  font-size: 11px;
+}
+
+.ls-brand-bottom span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- RIGHT: auth panel ---------- */
+.ls-auth-panel {
+  background: var(--bg-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+}
+
+.ls-auth-card {
+  width: 100%;
+  max-width: 380px;
+}
+
+.ls-tabs {
+  display: flex;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 30px;
+}
+
+.ls-tab {
+  flex: 1;
+  text-align: center;
+  padding: 9px 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--muted);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  user-select: none;
+}
+
+.ls-tab.active {
+  background: linear-gradient(180deg, var(--blue), #2f6fe0);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+}
+
+.ls-auth-head h1 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: 25px;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.ls-auth-head p {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.ls-oauth-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.ls-oauth-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  padding: 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.ls-oauth-btn:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: #141c2e;
+}
+
+.ls-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  color: var(--muted-2);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ls-divider::before,
+.ls-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.ls-panel-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ls-field label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #cbd2e0;
+  margin-bottom: 7px;
+}
+
+.ls-input-wrap {
+  position: relative;
+}
+
+.ls-field input {
+  width: 100%;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 13.5px;
+  font-family: "Inter", sans-serif;
+  padding: 11px 13px;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.ls-field input::placeholder {
+  color: var(--muted-2);
+}
+
+.ls-field input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+  background: #0d1420;
+}
+
+.ls-field .ls-hint {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--muted-2);
+}
+
+.ls-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ls-toggle-pass {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 600;
+  background: none;
+  border: none;
+  font-family: "Inter", sans-serif;
+}
+
+.ls-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+
+.ls-remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.ls-remember input {
+  accent-color: var(--blue);
+  width: 14px;
+  height: 14px;
+}
+
+.ls-link {
+  color: var(--blue-bright);
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ls-link:hover {
+  text-decoration: underline;
+}
+
+.ls-terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.ls-terms input {
+  margin-top: 2px;
+  accent-color: var(--blue);
+}
+
+.ls-submit-btn {
+  margin-top: 4px;
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--blue-bright), #2f6fe0);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -8px rgba(59, 130, 246, 0.55);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.ls-submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px -8px rgba(59, 130, 246, 0.65);
+}
+
+.ls-submit-btn:active {
+  transform: translateY(0);
+}
+
+.ls-switch-line {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.ls-secure-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 26px;
+  font-size: 10.5px;
+  color: var(--muted-2);
+  font-family: "JetBrains Mono", monospace;
+}
+
+@media (max-width: 900px) {
+  .ls-shell {
+    grid-template-columns: 1fr;
+  }
+  .ls-brand-panel {
+    display: none;
+  }
+  .ls-auth-panel {
+    padding: 32px 20px;
+  }
+}

@@ -1,0 +1,387 @@
+/* =========================
+   TRUSTED SECTION
+========================= */
+
+.trusted {
+  width: 100%;
+  background: #091426;
+  border-top: 1px solid rgba(255, 255, 255, 0.025);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.025);
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.trusted-container {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 48px 30px 46px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.trusted-title {
+  margin: 0;
+
+  text-align: center;
+
+  color: #7f8da3;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================
+   COMPANY SLIDER
+========================= */
+
+.trusted-slider {
+  width: 100%;
+
+  margin-top: 27px;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+
+/* =========================
+   MOVING TRACK
+========================= */
+
+.trusted-track {
+  display: flex;
+
+  align-items: center;
+
+  width: max-content;
+
+  gap: 70px;
+
+  animation: trusted-marquee 22s linear infinite;
+
+  will-change: transform;
+}
+
+
+/* =========================
+   COMPANY
+========================= */
+
+.trusted-company {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+
+  color: #9aa8bb;
+
+  min-width: 130px;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+.trusted-company:hover {
+  color: #ffffff;
+}
+
+
+/* =========================
+   COMPANY NAME
+========================= */
+
+.company-name {
+  font-size: 17px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   STACKED ICON
+========================= */
+
+.trusted-icon {
+  position: relative;
+
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+}
+
+
+.trusted-icon span {
+  position: absolute;
+
+  left: 2px;
+
+  width: 15px;
+  height: 7px;
+
+  border: 2px solid #8998ad;
+
+  border-radius: 50%;
+
+  transform: rotate(0deg);
+
+  box-sizing: border-box;
+}
+
+
+/* Top layer */
+
+.trusted-icon span:nth-child(1) {
+  top: 2px;
+}
+
+
+/* Middle layer */
+
+.trusted-icon span:nth-child(2) {
+  top: 6px;
+}
+
+
+/* Bottom layer */
+
+.trusted-icon span:nth-child(3) {
+  top: 10px;
+}
+
+
+/* =========================
+   MARQUEE ANIMATION
+========================= */
+
+/*
+   The JSX contains the companies twice.
+
+   The track moves from -50% to 0%, which makes
+   the companies continuously move from LEFT → RIGHT.
+*/
+
+@keyframes trusted-marquee {
+
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+
+}
+
+
+/* =========================
+   PAUSE ON HOVER
+========================= */
+
+.trusted-slider:hover .trusted-track {
+  animation-play-state: paused;
+}
+
+
+/* =========================
+   FADE EDGES
+========================= */
+
+.trusted-slider::before,
+.trusted-slider::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 70px;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+
+.trusted-slider::before {
+  left: 0;
+
+  background: linear-gradient(
+    to right,
+    #091426,
+    transparent
+  );
+}
+
+
+.trusted-slider::after {
+  right: 0;
+
+  background: linear-gradient(
+    to left,
+    #091426,
+    transparent
+  );
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .trusted-container {
+    padding:
+      40px
+      25px;
+  }
+
+
+  .trusted-track {
+    gap: 55px;
+
+    animation-duration: 20s;
+  }
+
+
+  .trusted-company {
+    min-width: 120px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .trusted-container {
+    padding:
+      35px
+      20px;
+  }
+
+
+  .trusted-title {
+    max-width: 320px;
+
+    margin: 0 auto;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+  }
+
+
+  .trusted-slider {
+    margin-top: 25px;
+  }
+
+
+  .trusted-track {
+    gap: 40px;
+
+    animation-duration: 16s;
+  }
+
+
+  .trusted-company {
+    min-width: 105px;
+
+    gap: 7px;
+  }
+
+
+  .company-name {
+    font-size: 14px;
+  }
+
+
+  .trusted-icon {
+    transform: scale(0.85);
+  }
+
+
+  .trusted-slider::before,
+  .trusted-slider::after {
+    width: 40px;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+  .trusted-track {
+    gap: 32px;
+
+    animation-duration: 14s;
+  }
+
+
+  .trusted-company {
+    gap: 6px;
+
+    min-width: 95px;
+  }
+
+
+  .company-name {
+    font-size: 13px;
+  }
+
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .trusted-track {
+    animation: none;
+
+    transform: none;
+  }
+
+}
