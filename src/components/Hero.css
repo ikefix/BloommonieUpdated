@@ -231,7 +231,7 @@
 /* =========================
    DASHBOARD PREVIEW
 ========================= */
-
+/* 
 .dashboard-preview {
   display: flex;
 
@@ -255,11 +255,44 @@
     0 30px 80px rgba(0, 0, 0, 0.35),
     0 0 50px rgba(21, 63, 120, 0.08);
 }
-
+ */
 
 /* =========================
    SIDEBAR
 ========================= */
+
+/* Software dashboard preview */
+
+.hero-software-preview {
+  width: 100%;
+  max-width: 1100px;
+  margin: 65px auto 0;
+  position: relative;
+  z-index: 2;
+  padding: 0 15px;
+}
+
+.hero-dashboard-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  
+}
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+  .hero-software-preview {
+    margin-top: 40px;
+    padding: 0 5px;
+  }
+
+  .hero-dashboard-image {
+    border-radius: 8px;
+  }
+}
+
 
 .dashboard-sidebar {
   width: 235px;

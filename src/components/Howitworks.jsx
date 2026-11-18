@@ -16,9 +16,9 @@ const Howitworks = () => {
     },
     {
       number: "03",
-      title: "Continuous Reconciliation",
+      title: "Always Know Where Your Business Stands",
       description:
-        "Live reports update immediately. No waiting until the end of the month to see your balance sheet.",
+        "Keep track of your sales, expenses and stock with records that update as you work. See how your business is performing at any time, without waiting until the end of the month to know your numbers.",
     },
   ];
 

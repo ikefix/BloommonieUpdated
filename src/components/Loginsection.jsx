@@ -6,7 +6,11 @@ import "./Loginsection.css";
 const Loginsection = () => {
   const navigate = useNavigate();
 
-  const [activeTab, setActiveTab] = useState("login");
+  const [activeTab, setActiveTab] = useState(() => {
+  return window.location.search.includes("mode=signup")
+    ? "signup"
+    : "login";
+});
   const [showLoginPass, setShowLoginPass] = useState(false);
   const [showSignupPass, setShowSignupPass] = useState(false);
 
